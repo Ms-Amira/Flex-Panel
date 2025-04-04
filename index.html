@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Flex Panels 💪</title>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC' rel='stylesheet' type='text/css'>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+<body>
+  <style>
+    html {
+      box-sizing: border-box;
+      background: pink;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+
+    .panels {
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .panel {
+      background: #6B0F9C;
+      box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+      color: white;
+      text-align: center;
+      align-items: center;
+      /* Safari transitionend event.propertyName === flex */
+      /* Chrome + FF transitionend event.propertyName === flex-grow */
+      transition:
+        font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+        background 0.2s;
+      font-size: 20px;
+      background-size: cover;
+      background-position: center;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel1 { background-image:url(https://i.imgur.com/rkrnSZ6_d.webp?maxwidth=520&shape=thumb&fidelity=high1500x1500); }
+    .panel2 { background-image:url(https://i.imgur.com/EohCYXd.jpeg1500x1500); }
+    .panel3 { background-image:url(https://i.imgur.com/lRusRAn.jpeg); }
+    .panel4 { background-image:url(https://images.ctfassets.net/ub3bwfd53mwy/5zi8myLobtihb1cWl3tj8L/45a40e66765f26beddf7eeee29f74723/6_Image.jpg?w=750); }
+    .panel5 { background-image:url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7GDrDktFxZIYwbj8HyoD8OpO1wZSv4XJWAA&s); }
+
+    /* Flex Children */
+    .panel > * {
+      margin: 0;
+      width: 100%;
+      transition: transform 0.5s;
+      flex: 1 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .panel > *:first-child {transform: translateY(-100%);}
+    .panel.open-active > *:first-child {transform: translateY(0);}
+    .panel > *:last-child {transform: translateY(100%);}
+    .panel.open-active > *:last-child {transform: translateY(0);}
+
+    .panel p {
+      text-transform: uppercase;
+      font-family: 'Amatic SC', cursive;
+      text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+      font-size: 2em;
+    }
+
+    .panel p:nth-child(2) {
+      font-size: 4em;
+    }
+
+    .panel.open {
+      font-size: 40px;
+      flex: 5;
+    }
+   p.hoverOver:hover {
+      background-color: lightpink;
+      opacity: 0.3;
+    }
+
+#hover-underline {
+  font-size: 4rem;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+}
+
+#hover-underline::after,
+#hover-underline::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #ff0000, #00ffff);
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+#hover-underline::before {
+  top: -5px;
+  transform-origin: left;
+}
+
+#hover-underline:hover::after,
+#hover-underline:hover::before {
+  transform: scaleX(1);
+}
+
+  </style>
+
+
+  <div class="panels">
+    <div class="panel panel1">
+      <p class="hoverOver" id="hover-underline">Hey</p>
+      <p id="hover-underline">Let's</p>
+      <p class="hoverOver" id="hover-underline">Dance</p>
+    </div>
+    <div class="panel panel2">
+      <p class="hoverOver" id="hover-underline">Give</p>
+      <p id="hover-underline">Take</p>
+      <p class="hoverOver" id="hover-underline">Receive</p>
+    </div>
+    <div class="panel panel3">
+      <p class="hoverOver" id="hover-underline">Experience</p>
+      <p id="hover-underline">It</p>
+      <p class="hoverOver" id="hover-underline">Today</p>
+    </div>
+    <div class="panel panel4">
+      <p class="hoverOver" id="hover-underline">Give</p>
+      <p id="hover-underline">All</p>
+      <p class="hoverOver" id="hover-underline">You can</p>
+    </div>
+    <div class="panel panel5">
+      <p class="hoverOver" id="hover-underline">Life</p>
+      <p id="hover-underline">In</p>
+      <p class="hoverOver" id="hover-underline">Motion</p>
+    </div>
+  </div>
+
+  <script>
+const panels = document .querySelectorAll('.panel');
+
+function toggleOpen(){
+  this.classList.toggle('open');
+}
+
+function toggleActive(e){
+  if(e.propertyName.includes('flex')) {
+    this.classList.toggle('open-active');
+  }
+}
+panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
+
+  </script>
+
+</body>
+</html>
