@@ -89,20 +89,20 @@
       font-size: 40px;
       flex: 5;
     }
-   p.hoverOver:hover {
-      background-color: lightpink;
-      opacity: 0.3;
-    }
 
-#hover-underline {
+  p:hover {
+    text-shadow: 2px 2px hotpink;
+}
+
+  #hover-underline {
   font-size: 4rem;
   color: #ffffff;
   position: relative;
   display: inline-block;
 }
 
-#hover-underline::after,
-#hover-underline::before {
+ #hover-underline::after,
+ #hover-underline::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -115,13 +115,13 @@
   transition: transform 0.4s ease-out;
 }
 
-#hover-underline::before {
+ #hover-underline::before {
   top: -5px;
   transform-origin: left;
 }
 
-#hover-underline:hover::after,
-#hover-underline:hover::before {
+ #hover-underline:hover::after,
+ #hover-underline:hover::before {
   transform: scaleX(1);
 }
 
@@ -130,29 +130,29 @@
 
   <div class="panels">
     <div class="panel panel1">
-      <p class="hoverOver" id="hover-underline">Hey</p>
+      <p id="hover-underline">Hey</p>
       <p id="hover-underline">Let's</p>
-      <p class="hoverOver" id="hover-underline">Dance</p>
+      <p id="hover-underline">Dance</p>
     </div>
     <div class="panel panel2">
-      <p class="hoverOver" id="hover-underline">Give</p>
+      <p id="hover-underline">Give</p>
       <p id="hover-underline">Take</p>
-      <p class="hoverOver" id="hover-underline">Receive</p>
+      <p id="hover-underline">Receive</p>
     </div>
     <div class="panel panel3">
-      <p class="hoverOver" id="hover-underline">Experience</p>
+      <p id="hover-underline">Experience</p>
       <p id="hover-underline">It</p>
-      <p class="hoverOver" id="hover-underline">Today</p>
+      <p id="hover-underline">Today</p>
     </div>
     <div class="panel panel4">
-      <p class="hoverOver" id="hover-underline">Give</p>
+      <p id="hover-underline">Give</p>
       <p id="hover-underline">All</p>
-      <p class="hoverOver" id="hover-underline">You can</p>
+      <p id="hover-underline">You can</p>
     </div>
     <div class="panel panel5">
-      <p class="hoverOver" id="hover-underline">Life</p>
+      <p id="hover-underline">Life</p>
       <p id="hover-underline">In</p>
-      <p class="hoverOver" id="hover-underline">Motion</p>
+      <p id="hover-underline">Motion</p>
     </div>
   </div>
 
